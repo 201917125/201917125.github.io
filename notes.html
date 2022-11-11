@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Notes</title>
+        <link rel="stylesheet" href="source/css/notes.css">
+    </head>
+
+    <body>
+        <section id="todolist">
+            <h1>便笺</h1>
+            <div class="inputtodo">
+                <input v-model="inputValue" placeholder="添加ToDo" @keyup.enter="add" class="addtodo" >
+            </div>
+            <div class="pad">
+                <div class="doing">
+                    <h2 style="margin-top: 20px;">未完成</h2>
+                    <hr>
+                    <ul class="tdlist">
+                        <li class="todo" v-for="(item,index) in list" v-if="!item.checked">
+                            <div class="view">
+                                <input class="checkbox" type="checkbox" v-model="item.checked"  />
+                                <label>{{item.title}}</label>
+                                <button class="destroy" @click="remove(index)">×</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="success">
+                    <h2>已完成</h2>
+                    <hr>
+                    <ul class="sclist">                            <li class="sctd" v-for="(item,index) in list" v-if="item.checked">
+                            <div class="view2">
+                                <input class="checkbox" type="checkbox" v-model="item.checked" />
+                                <label>{{item.title}}</label>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+		<a style="padding:2%; color: bisque;" href="./index.html" >返回</a>
+		<br><br>
+		<br><br>
+        <div id="footer">
+            <p>秦忠豪</a></p>
+        </div>
+        
+        <script src="source/js/vue.js"></script>
+        <script src="source/js/notes.js"></script>
+    </body>
+
+</html>
